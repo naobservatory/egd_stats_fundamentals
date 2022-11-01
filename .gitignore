@@ -5,6 +5,7 @@
 # Private files
 private_notes.Rmd
 private_notes.html
+images/
 
 # Session Data files
 .RData

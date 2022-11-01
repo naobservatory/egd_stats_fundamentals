@@ -8,22 +8,42 @@ date: "2022-10-25"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## [2022-10-25] Exponential Growth Detection - Statistics Primer
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+*by Simon Grimm*
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+### Introduction
 
-```{r cars}
-summary(cars)
+The Nucleic Acid Observatory aims to identify novel outbreaks that have the potential to pose a GCBR. One value-add of an NAO is the detection of outbreaks that would have remained undiscovered by existing surveillance measures.
+
+One way to detect such outbreaks is to monitor for pathogens that are exponentially increasing in a set of environmental (aggregated airplane waste, wastewater) or sentinel samples (random non-patient sample). When detected there are further questions that need to answered to evaluate the risk posed by the flagged pathogen, such as its pathogenicity or pandemic potential. The methods to do the latter will not be discussed in this memo.
+
+This memo will discuss statistical considerations when thinking about the detection of exponential spread, going into such topics such as p-values, Poisson distributions, (multiple) hypothesis testing, perfect separation problem, regularization, Bayesian inference, and prior setting. A write-up on these topics serves i) as a distillation of discussions within the NAO modeling team, and as a ii) learning-by writing-exercise for myself.
+
+### Null hypothesis, p-values, and hypothesis testing
+
+Our goal is to identify any pathogen that is rising exponentially in frequency. One approach [currently being explored](https://docs.google.com/document/d/1bVS0iuYX18Kcw81zpEnTTs6H0QN2mmuKpBJjmeFuC7g/edit#) in this regard is to flag exponentially growing, specific k-mers. A k-mer is any sequence fragments of k base pairs (bp) length
+
+`GTCA`
+
+A 4-mer.
+
+`GGCCGAAGGTGATTTGCTGGCCGTGCATTCG`
+
+A 31-mer.
+
+31-mers are commonly used in metagenomic data analysis as 31 bp is just long enough for 31-mers to not co-occur in to many organisms, while not being so long as too include too many read errors (which, depending on the sequencing method, occur with 1%-0.1% frequency.)
+
+We would identify concerning pathogens by identifying their exponential increase, taking an increase in the pathogen's sequence fragments as a measurement proxy.
+
+We can thus use an unusally fast growth rate in a k-mers occurrence as a signal that warrants further investigation. The likelihood of such fast growth in a scenario where there is no exponential threat present can be obtained by looking at the distribution of pathogen growth rates across a hypothetical metagenomic time-series dataset.
+
+*Potentially include a visualization of such a dataset*
+
+WHICH normal distribution do we use? growth rate?
+
+```{r}
+tinytex::install_tinytex()
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+latex test: $a^2 = b^2 + c^2$
