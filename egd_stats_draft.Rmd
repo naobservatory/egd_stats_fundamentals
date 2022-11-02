@@ -36,14 +36,59 @@ A 31-mer.
 
 We would identify concerning pathogens by identifying their exponential increase, taking an increase in the pathogen's sequence fragments as a measurement proxy.
 
-We can thus use an unusally fast growth rate in a k-mers occurrence as a signal that warrants further investigation. The likelihood of such fast growth in a scenario where there is no exponential threat present can be obtained by looking at the distribution of pathogen growth rates across a hypothetical metagenomic time-series dataset.
+We can thus use an unusally fast growth rate in a k-mers occurrence as a signal that warrants further investigation. The likelihood of such fast growth in a scenario where there is no exponential threat present can be obtained by looking at the distribution of pathogen growth rates across a hypothetical metagenomic time-series dataset. Seeing an new exponentially spreading biological threat then allows us to infer the likelihood of seeing such a pathogen, based on the null hypothesis.
 
 *Potentially include a visualization of such a dataset*
-
-WHICH normal distribution do we use? growth rate?
 
 ```{r}
 tinytex::install_tinytex()
 ```
 
-latex test: $a^2 = b^2 + c^2$
+In statistical terms we work with data
+
+$\vec{x}$
+
+and some test statistic
+
+$T(\vec{x})$.
+
+The null model of $\vec{x}$ can then be represented as
+
+$\vec{x} \sim p_o(\vec{x})$
+
+where $p_o$ is the probability for seeing different values of $\vec{x}$.
+
+*Things I will do next: plot right-tailed distribution below. Explain how this shows what p-values are.*
+
+![](images/IMG_20221020_123443517.jpg)
+
+*Then explain how we currently don't know how* *this distribution looks like because of a lack of data, pointing to how we can then model this distribution using Poisson.*
+
+*Based on the writing below this means we have some variable k (a k-mer), and the k-mer's growth rate r. The test statistic is then based on the growth rate r.*
+
+*Modelling this, we can fix c, which is the overall intensity of sequencing (which would increase the overall counts of different ks, which is irrelevant here as the relative shares of k would stay the same if we ignore stochasticity).*
+
+What we do then is draw the number of different ks, based on a Poisson distribution on R. **QUESTION HOW DO WE ARRIVE AT K EXACTLY?**
+
+*Based on the number of k we can then fit r (growth rate).* **HOW DO WE FIT R?**
+
+Looking at the second image below, we can deduce the number of $k_i$ at time $t_i$ the following way:
+
+$k_i \sim \text{Poisson}(ce^{rt_i)}.$
+
+What does Poisson here actually do?
+
+![](images/paste-7A0AB7A1.png)
+
+*Other parts of the doc below are not perfectly parsable for me. E.g., I'm unsure what* $o$ *means in the Null hypothesis:* $o,c$ *at the bottom of the image.*
+
+Also, what does IFD mean to the right. Would this be the ideal free distribution? If so how does it fit in
+
+![](images/IMG_20221020_123436688.jpg)
+
+Good explainer of regularization:\
+[https://en.wikipedia.org/wiki/Regularization\_(mathematics)](https://en.wikipedia.org/wiki/Regularization_(mathematics))
+
+![](images/IMG_20221020_123425707.jpg)
+
+latex test: \$\$
