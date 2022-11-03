@@ -41,7 +41,7 @@ We can thus use an unusally fast growth rate in a k-mers occurrence as a signal 
 *Potentially include a visualization of such a dataset*
 
 ```{r}
-tinytex::install_tinytex()
+tinytex::install_tinytex(force = TRUE)
 ```
 
 In statistical terms we work with data
@@ -58,9 +58,13 @@ $\vec{x} \sim p_o(\vec{x})$
 
 where $p_o$ is the probability for seeing different values of $\vec{x}$.
 
+### Determining p-values
+
 *Things I will do next: plot right-tailed distribution below. Explain how this shows what p-values are.*
 
 ![](images/IMG_20221020_123443517.jpg)
+
+### Modeling a Poisson distribution
 
 *Then explain how we currently don't know how* *this distribution looks like because of a lack of data, pointing to how we can then model this distribution using Poisson.*
 
@@ -68,21 +72,19 @@ where $p_o$ is the probability for seeing different values of $\vec{x}$.
 
 *Modelling this, we can fix c, which is the overall intensity of sequencing (which would increase the overall counts of different ks, which is irrelevant here as the relative shares of k would stay the same if we ignore stochasticity).*
 
-What we do then is draw the number of different ks, based on a Poisson distribution on R. **QUESTION HOW DO WE ARRIVE AT K EXACTLY?**
-
-*Based on the number of k we can then fit r (growth rate).* **HOW DO WE FIT R?**
-
 Looking at the second image below, we can deduce the number of $k_i$ at time $t_i$ the following way:
 
 $k_i \sim \text{Poisson}(ce^{rt_i)}.$
 
-What does Poisson here actually do?
+*What does Poisson here actually do?*
+
+Based on the number of k we can then fit r (growth rate).
 
 ![](images/paste-7A0AB7A1.png)
 
 *Other parts of the doc below are not perfectly parsable for me. E.g., I'm unsure what* $o$ *means in the Null hypothesis:* $o,c$ *at the bottom of the image.*
 
-Also, what does IFD mean to the right. Would this be the ideal free distribution? If so how does it fit in
+*Also, what does IFD mean to the right. Would this be the ideal free distribution?*
 
 ![](images/IMG_20221020_123436688.jpg)
 
