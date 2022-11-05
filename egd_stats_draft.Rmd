@@ -12,6 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 *by Simon Grimm*
 
+-   to integrate: <https://lakens.github.io/statistical_inferences/pvalue.html>
+
 ### Introduction
 
 The Nucleic Acid Observatory aims to identify novel outbreaks that have the potential to pose a GCBR. One value-add of an NAO is the detection of outbreaks that would have remained undiscovered by existing surveillance measures.
@@ -60,7 +62,15 @@ where $p_o$ is the probability for seeing different values of $\vec{x}$.
 
 ### Determining p-values
 
+Notes - when talking to mike [2022-11-03]
+
+Two-sided test. The null-hypothesis is no growth. If something is growing faster we'd see a smaller p-value.
+
+we look at the p-value associated with.
+
 *Things I will do next: plot right-tailed distribution below. Explain how this shows what p-values are.*
+
+IID = indenpendent and identically distributed.
 
 ![](images/IMG_20221020_123443517.jpg)
 
