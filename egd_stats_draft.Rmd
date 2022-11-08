@@ -42,10 +42,6 @@ We can thus use an unusally fast growth rate in a k-mers occurrence as a signal 
 
 *Potentially include a visualization of such a dataset*
 
-```{r}
-tinytex::install_tinytex(force = TRUE)
-```
-
 In statistical terms we work with data
 
 $\vec{x}$
